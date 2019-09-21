@@ -1,6 +1,12 @@
 ## ZeroTip - Zero currency tipbot for Telegram
 > Forked from [PandaTip-Telegram](https://github.com/DarthJahus/PandaTip-Telegram), by @DarthJahus
- 
+
+### ⚠ Warning
+
+This bot is not functional for it needs account management to be supported by the client (wallet).
+
+The feature has been deprecated and removed from latest BitcoinCore clients, and therefore from all clients who merged the change or forked after it has been made.
+
 ### Dependencies 
 
 * `apt-get install python-dev`

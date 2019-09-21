@@ -2,7 +2,7 @@
 # Used on Ubuntu 16.04.6 LTS (xenial)
 # assuming that /zero exists and contains:
 # * zero.conf
-# * zerod (daemon, binary)
+# * zerod and zero-cli (daemon, binary)
 # * config.json
 # * this script
 
@@ -11,10 +11,15 @@ mkdir /zero/daemon
 mkdir /zero/data
 mv zero.conf /zero/data/zero.conf
 mv zerod /zero/daemon/zerod
+mv zero-cli /zero/daemon/zero-cli
 
 # Additional config for Zero
 wget https://raw.githubusercontent.com/zerocurrencycoin/Zero/master/zcutil/fetch-params.sh
 chmod +x fetch-params.sh
+if (( $EUID == 0 )); then
+	# This will make the service-loaded daemon able to find the params directly.
+	sed -i 's/PARAMS_DIR="\$HOME\/.zcash-params/PARAMS_DIR="\/.zcash-params"/' fetch-params.sh
+fi
 ./fetch-params.sh
 
 # Download the bot

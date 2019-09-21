@@ -26,9 +26,9 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/zero/data/zerod.pid
-ExecStart=/zero/daemon/zerod -daemon -staking=0 -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
-ExecStop=/zero/daemon/zerod stop
-ExecReload=/zero/daemon/zerod stop ; /bin/sleep 60 ; /zero/daemon/zerod -daemon -staking=0 -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
+ExecStart=/zero/daemon/zerod -daemon -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
+ExecStop=/zero/daemon/zerod-cli -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf stop
+ExecReload=/zero/daemon/zerod-cli -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf stop ; /bin/sleep 60 ; /zero/daemon/zerod -daemon -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
 RestartSec=300
 WorkingDirectory=/zero/data/
 Restart=always

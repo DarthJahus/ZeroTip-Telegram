@@ -38,9 +38,9 @@ __rain_queue_max_members = config["rain"]["rain_queue_max_members"]  # Max membe
 __rain_min_members = config["rain"]["rain_min_members"]  # 5
 __rain_min_amount = config["rain"]["rain_min_amount"]  # 10
 
-__unit = "IOC"
+__unit = "ZER"
 
-__rpc_getbalance_account = True  # If True, use getbalance <account>, else use getbalance <address>
+__rpc_getbalance_account = False  # If True, use getbalance <account>, else use getbalance <address>
 __rpc_sendmany_account = False   # If False, use sendmany <source_account> {"address": amount}, else {"account": amount}
 __blockchain_explorer_tx = "https://explorer.zeromachine.io/tx/"
 __minconf = 0  # See issue #4 (https://github.com/DarthJahus/CashTip-Telegram/issues/4)
