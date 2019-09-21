@@ -27,7 +27,7 @@ Create a `config.json` **JSON** file and set up the following parameters:
     {
     	"telegram-token": "such:sicret-token",
     	"telegram-botname": "ZeroTip",
-    	"rpc-uri": "http://127.0.0.1:23801",
+    	"rpc-uri": "http://127.0.0.1:23800",
     	"rpc-user": "suchuser",
     	"rpc-psw": "suchpassword",
     	"admins": [-0, 0],
