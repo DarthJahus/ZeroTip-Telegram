@@ -1,0 +1,37 @@
+# assuming zerod binary is /zero/daemon/zerod
+# assuming chmod+x /zero/daemon/zerod
+#
+# Copy the service file:
+# cp ./zerod.service /lib/systemd/system/zerod.service
+# chmod 644 /lib/systemd/system/zerod.service
+#
+# Install service file:
+# systemctl daemon-reload
+# systemctl enable zerod.service
+# Run service:
+# systemctl start zerod.service
+# Check status:
+# systemctl status zerod.service
+# Stop service:
+# systemctl stop zerod.service
+#
+# Remove service:
+# systemctl disable zerod.service
+
+[Unit]
+Description=Pandacoin Deamon
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/zero/data/zerod.pid
+ExecStart=/zero/daemon/zerod -daemon -staking=0 -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
+ExecStop=/zero/daemon/zerod stop
+ExecReload=/zero/daemon/zerod stop ; /bin/sleep 60 ; /zero/daemon/zerod -daemon -staking=0 -datadir=/zero/data/ -pid=zerod.pid -conf=zero.conf
+RestartSec=300
+WorkingDirectory=/zero/data/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
