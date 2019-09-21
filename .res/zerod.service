@@ -19,7 +19,7 @@
 # systemctl disable zerod.service
 
 [Unit]
-Description=Pandacoin Deamon
+Description=Zero Deamon
 After=syslog.target
 After=network.target
 

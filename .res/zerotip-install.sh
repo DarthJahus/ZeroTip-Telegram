@@ -14,11 +14,11 @@ mv zerod /zero/daemon/zerod
 
 # Download the bot
 cd /zero
-git clone https://github.com/DarthJahus/ioctip-telegram
-mv config.json /zero/ioctip-telegram/
+git clone https://github.com/DarthJahus/zerotip-telegram
+mv config.json /zero/zerotip-telegram/
 
 # start daemon service
-cd /zero/ioctip-telegram/.res
+cd /zero/zerotip-telegram/.res
 cp ./zerod.service /lib/systemd/system/zerod.service
 chmod 644 /lib/systemd/system/zerod.service
 systemctl daemon-reload
@@ -27,10 +27,10 @@ systemctl start zerod.service
 systemctl status zerod.service
 
 # Start bot service
-cd /zero/ioctip-telegram/
-cp ./ioctip.service /lib/systemd/system/zerod.service
-chmod 644 /lib/systemd/system/ioctip.service
+cd /zero/zerotip-telegram/
+cp ./zerotip.service /lib/systemd/system/zerod.service
+chmod 644 /lib/systemd/system/zerotip.service
 systemctl daemon-reload
-systemctl enable ioctip.service
-systemctl start ioctip.service
-systemctl status ioctip.service
+systemctl enable zerotip.service
+systemctl start zerotip.service
+systemctl status zerotip.service
