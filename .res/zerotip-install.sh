@@ -12,6 +12,11 @@ mkdir /zero/data
 mv zero.conf /zero/data/zero.conf
 mv zerod /zero/daemon/zerod
 
+# Additional config for Zero
+wget https://raw.githubusercontent.com/zerocurrencycoin/Zero/master/zcutil/fetch-params.sh
+chmod +x fetch-params.sh
+./fetch-params.sh
+
 # Download the bot
 cd /zero
 git clone https://github.com/DarthJahus/zerotip-telegram
@@ -24,7 +29,6 @@ chmod 644 /lib/systemd/system/zerod.service
 systemctl daemon-reload
 systemctl enable zerod.service
 systemctl start zerod.service
-systemctl status zerod.service
 
 # Start bot service
 cd /zero/zerotip-telegram/
@@ -33,4 +37,7 @@ chmod 644 /lib/systemd/system/zerotip.service
 systemctl daemon-reload
 systemctl enable zerotip.service
 systemctl start zerotip.service
+
+# Check services status
+systemctl status zerod.service
 systemctl status zerotip.service
