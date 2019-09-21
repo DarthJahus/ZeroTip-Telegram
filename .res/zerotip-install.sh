@@ -28,7 +28,7 @@ systemctl status zerod.service
 
 # Start bot service
 cd /zero/zerotip-telegram/
-cp ./zerotip.service /lib/systemd/system/zerod.service
+cp ./zerotip.service /lib/systemd/system/zerotip.service
 chmod 644 /lib/systemd/system/zerotip.service
 systemctl daemon-reload
 systemctl enable zerotip.service
