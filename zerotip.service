@@ -13,14 +13,14 @@
 # systemctl disable zerotip.service
 
 [Unit]
-Description=YuanTipBot
+Description=ZeroTipBot
 After=syslog.target
 After=network.target
 After=zerod.service
 
 [Service]
 Type=simple
-ExecStart=/zero/zerotip-telegram/YuanTip.py
+ExecStart=/zero/zerotip-telegram/ZeroTip.py
 WorkingDirectory=/zero/zerotip-telegram/
 Restart=always
 RestartSec=600
