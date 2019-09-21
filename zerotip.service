@@ -16,12 +16,12 @@
 Description=YuanTipBot
 After=syslog.target
 After=network.target
-After=zerocoind.service
+After=zerod.service
 
 [Service]
 Type=simple
-ExecStart=/zerocoin/zerotip-telegram/YuanTip.py
-WorkingDirectory=/zerocoin/zerotip-telegram/
+ExecStart=/zero/zerotip-telegram/YuanTip.py
+WorkingDirectory=/zero/zerotip-telegram/
 Restart=always
 RestartSec=600
 
